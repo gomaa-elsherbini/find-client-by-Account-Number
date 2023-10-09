@@ -117,13 +117,8 @@ int main()
 	string AccountNumber = readAccountNumber();
 	vector <stClient> vStClients = vectorStClienstAccounts("clientInfo.txt");
 
-	for (stClient client : vStClients)
-	{
-		printStClientData(client);
-
-	}
-
-	//printAccountWithAccontNumber(vStClients, AccountNumber);
+	
+	printAccountWithAccontNumber(vStClients, AccountNumber);
 	
 
 	
