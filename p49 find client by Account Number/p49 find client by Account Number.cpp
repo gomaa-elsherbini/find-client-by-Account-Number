@@ -44,7 +44,6 @@ vector <string> LineDataToVector(string line)
 	{
 		vClient.push_back(line);
 	}
-
 	return vClient;
 }
 
@@ -74,8 +73,11 @@ vector <stClient> vectorStClienstAccounts(string fileName)
 	{
 		while (getline(Clients, line))
 		{
-			client = VectorDataToStClient(LineDataToVector(line));
-			vStClients.push_back(client);
+			if (line != "")
+			{
+				client = VectorDataToStClient(LineDataToVector(line));
+				vStClients.push_back(client);
+			}
 		}
 		Clients.close();
 	}
@@ -115,7 +117,13 @@ int main()
 	string AccountNumber = readAccountNumber();
 	vector <stClient> vStClients = vectorStClienstAccounts("clientInfo.txt");
 
-	printAccountWithAccontNumber(vStClients, AccountNumber);
+	for (stClient client : vStClients)
+	{
+		printStClientData(client);
+
+	}
+
+	//printAccountWithAccontNumber(vStClients, AccountNumber);
 	
 
 	
